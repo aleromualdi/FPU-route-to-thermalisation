@@ -1,0 +1,8 @@
+.DS_Store
+.vscode/
+data/
+papers/
+notebooks/model.h5
+
+*.egg-info/
+__pycache__/
