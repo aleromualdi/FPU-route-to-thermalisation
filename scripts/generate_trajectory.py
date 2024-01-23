@@ -1,10 +1,12 @@
 import argparse
 import os
+import sys
 from pathlib import Path
 
 import numpy as np
 
-from src.integrator import FPUT_Integrator
+sys.path.append('../')
+from src.integrator import FPU_Integrator
 
 
 def main(args):
@@ -13,7 +15,7 @@ def main(args):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
-    fpu = FPUT_Integrator(
+    fpu = FPU_Integrator(
         num_atoms=args.num_atoms,
         num_modes=args.num_modes,
         initial_mode_number=args.initial_mode_number,
@@ -28,7 +30,7 @@ def main(args):
 
     output_names = ["times", "q", "p", "mode_energies"]
     for x, name in zip(output, output_names):
-        np.save(output_path + "/" + name, x)
+        np.save(output_path / name, x)
 
 
 if __name__ == "__main__":
@@ -85,7 +87,7 @@ if __name__ == "__main__":
         "--output-dir-name",
         type=str,
         help="output directory name",
-        default='data/fermi_1.8/',
+        required=True
     )
 
     args = parser.parse_args()

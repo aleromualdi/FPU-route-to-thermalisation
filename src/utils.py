@@ -15,17 +15,20 @@ class FPUTData:
 
 
 # util function to load FPUT data
-def load_data(data_dir: str, beta: float) -> FPUTData:
+def load_data(data_dir: str, load_dst: bool=False) -> FPUTData:
 
-    data_path = os.path.join(data_dir, f"fermi_{beta}")
-    data_matrix = np.load(os.path.join(data_path, "dataMatrix.npy"))
-    energy_matrix = np.load(os.path.join(data_path, "energyMatrix.npy"))
-    dst = np.load(os.path.join(data_path, "dst.npy"))
-    time = np.load(os.path.join(data_path, "time.npy"))
+    data_matrix = np.load(os.path.join(data_dir, "dataMatrix.npy"))
+    energy_matrix = np.load(os.path.join(data_dir, "energyMatrix.npy"))
+    if load_dst:
+        dst = np.load(os.path.join(data_dir, "dst.npy"))
+    else:
+        dst = None
+    time = np.load(os.path.join(data_dir, "time.npy"))
 
     return FPUTData(
         data_matrix=data_matrix, energy_matrix=energy_matrix, dst=dst, times=time
     )
+    
 
 
 def temporalize_data(q: np.array, timesteps: np.array) -> np.array:

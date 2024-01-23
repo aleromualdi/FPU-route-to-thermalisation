@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class FPUT_Integrator(object):
+class FPU_Integrator(object):
     """Fermi-Pasta-Ulam integrator based on Verlet or Runge-Kutta algorithms.
     """
     def __init__(
@@ -36,7 +36,6 @@ class FPUT_Integrator(object):
 
         coef = np.sqrt(2.0 / (self.num_atoms + 1))
         for i in range(0, self.num_atoms):
-            # formula says i * k * pi but array q starts with index 0
             const = (i + 1) * self.initial_mode_number * np.pi
             sin_arg = const / (self.num_atoms + 1)
             q[i][0] = self.initial_mode_amplitude * coef * np.sin(sin_arg)
