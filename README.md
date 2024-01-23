@@ -1,4 +1,4 @@
-# The Fermi-Pasta-Ulam-Tsingou system and its route to thermalization
+# The Fermi-Pasta-Ulam system and its route to thermalization
 
 This repository implements a deep learning methodology employing a Long Short-Term Memory (LSTM)-based autoencoder model to explore the lifespan of metastable states im the Fermi-Pasta-Ulam (FPU) system and, consequently, identify the phase transition leading to equipartition.
 
