@@ -4,6 +4,12 @@ This repository implements a deep learning methodology employing a Long Short-Te
 
 More info in `notebooks/route_to_thermalization.ipynb`.
 
+<div style="display: flex; align-items: center;">
+    <img src="fpu.png" alt="Alt Text" width="500">
+    <img src="thermalisation.png" alt="Another Image" width="500">
+</div>
+
+
 ## Installation
 
 The code runs on Python 3.9
